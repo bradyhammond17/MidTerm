@@ -8,6 +8,8 @@ You have been given partial code. The objective is to reproduce the output as sh
    and the output should reflect that as shown in the picture.
 '''
 
+import CourseClass as c
+import CourseClass as r
 
 
 def main():
@@ -16,13 +18,19 @@ def main():
     crn = '250309'
     seats = 4
     status = 'open'
-    students = ['John','James','Jill','Jack','Joanne']
+    students = ['John', 'James', 'Jill', 'Jack', 'Joanne']
 
-    
+    course = c.Course(name, crn, seats, status)
+    for student in students:
+        register = r.Register(name, crn)
+        course.update_seat_count()
+        print("Student Name:", student)
+        print("Course Name:", register.get_name())
+        print("CRN:", course.get_crn())
+        print("Seats left:", str(course.get_seats()) + "\n")
+    if course.get_status() == "closed":
+        print("Sorry", student, "," + "registration is closed for",
+              register.get_name())
+
+
 main()
-
-
-
-        
-    
-    
